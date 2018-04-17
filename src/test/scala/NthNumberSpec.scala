@@ -20,14 +20,12 @@ class NthNumberSpec extends WordSpec with MustMatchers {
       NthNumber.nth(List(3, 3, 4, 4, 5, 5), 3) mustEqual 3
     }
 
-    "Throw IndexOutOfBoundsException when given (List(1, 2)" in {
+    "Throw OutOfBoundsException 'Out of scope' when given List(1, 2) and 3" in {
 
-      intercept[IndexOutOfBoundsException] {
+      val e = intercept[IndexOutOfBoundsException] {
         NthNumber.nth(List(1, 2), 3)
       }
-
+      e.getMessage mustEqual "Out of scope"
     }
-
   }
-
 }

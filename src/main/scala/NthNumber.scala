@@ -2,8 +2,10 @@ object NthNumber extends App {
 
   def nth (input : List[Int], num : Int) : Int = {
     val distinctList = input.distinct.reverse
-    distinctList(num-1)
+    if (distinctList.length < num) {
+      throw new IndexOutOfBoundsException ("Out of scope")
+      } else {
+      distinctList(num-1)
+    }
   }
-
-
 }
